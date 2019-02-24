@@ -25,7 +25,7 @@ import math
 guess_val = 0
 # for loop
 for n in range(1000000001):
-    num1 = (-1) **n #the value of numerator
+    num1 = (-1) ** n #the value of numerator
     den1 = (2*n +1) #the value of denominator
     guess_val = guess_val + (num1/den1)
     answer = guess_val * 4

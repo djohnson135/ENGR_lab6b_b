@@ -25,10 +25,21 @@ total_num = 0
 num = 0
 max_num = 0
 min_num = 0
+def is_num(n):
+    try:
+        float(n)
+    except ValueError:
+        return False
+    return True
+
 # input for measurements
 # input as a while loop
 while meas >= 0:
-    meas = float(input('What is your measurement? (negative quits code) = '))
+    user_input = input('What is your measurement? (negative quits code) = ')
+    if  not is_num(user_input):
+        print('Please input a number')
+        continue
+    meas = float(user_input)
     if meas < 0:
         break
     if meas > max_num or num == 0:
