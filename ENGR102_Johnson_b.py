@@ -17,19 +17,32 @@ Date : 2-21-19
 #measurements as they want, until entering a negative measurement. The negative
 #measurement should not be processed, but is just used to indicate that the user has finished
 #entering measurements. [Note: do not use a list to store the measurements.]
-
+import math
 # input for measurements
 # variables to find average
 meas = 0
 total_num = 0
 num = 0
-
+max_num = 0
+min_num = 0
 # input for measurements
 # input as a while loop
 while meas >= 0:
-    meas = float(input('What is your measurement? = ')
-
-
+    meas = float(input('What is your measurement? (negative quits code) = '))
+    if meas < 0:
+        break
+    if meas > max_num or num == 0:
+        max_num = meas
+    if meas < min_num or num == 0:
+        min_num = meas
+    total_num += meas
+    num += 1
+if num > 0:
+    avg = total_num / num
+    print('The maximum is: ', max_num)
+    print('The minimum is: ', min_num)
+    print('The average: ', avg)
+print('Exit')
 
 # if statements to find max and min
 
