@@ -29,7 +29,7 @@ import math
 # input number of terms
 num_terms = 5
 answer = 0
-tolerance = 1e-2
+tolerance = 1e-4
 err = 100
 answer = 0
 while err >= tolerance:
@@ -40,11 +40,8 @@ while err >= tolerance:
         den1 = (2*n +1)
         guess_val += (num1/den1)
     answer = guess_val * 4
-    print('Iterations: ', num_terms,  ' Value: ', answer)
     num_terms += 1
     err = abs(value - answer)
-print(answer)
-print(err)   
 # Output (guess, actual value)
 print(answer,num_terms)
 print(math.pi)
