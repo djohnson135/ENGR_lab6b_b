@@ -20,23 +20,30 @@ Date : 2-21-19
 
 
 # estimate pi using series
-
 import math
-# user input
-# input number of terms
-num_terms = 1
-
-# math maybe a loop
-err = 100
-while err > 1e-6:
+def estimate_pi(n):
+    # define guess_value
     guess_val = 0
-    for n in range(num_terms):
-        num1 = (-1) **n
-        den1 = (2*n +1)
+    num_loops = 0
+    # for loop
+    for k in range(n):
+        num_loops += 1
+        num1 = 4 * (-1) ** k #the value of numerator
+        den1 = (2*k +1) #the value of denominator
         guess_val = guess_val + (num1/den1)
-        answer = guess_val * 4
-    err = abs(math.pi - answer)
-    num_terms += 1
-    
-# Output (guess, actual value)
-print(guess_val,num_terms)
+    return guess_val
+
+current_tolerance = 10000
+wanted_tolerance = 1e-4
+k = 1
+current_estimate = estimate_pi(k)
+while current_tolerance >= wanted_tolerance:
+    next_estimate = estimate_pi(k+1)
+    current_tolerance = abs(current_estimate - next_estimate)
+    k += 1
+    current_estimate = next_estimate
+print('Tolerance: ', current_tolerance)
+print('Previous estimate: ', current_estimate)
+print('Current estimate: ', next_estimate,'Iterations: ', k)
+
+print('Pi: ', math.pi)
